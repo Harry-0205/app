@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface SubcategoryRepository extends JpaRepository<Subcategory, Long> {
-    List<Subcategory>findByCSubcategoryId(Long categoryId);
+    List<Subcategory>findByCategoryId(Long categoryId);
 }
