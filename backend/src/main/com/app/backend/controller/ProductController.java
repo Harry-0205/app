@@ -24,11 +24,22 @@ public class ProductController {
         return ResponseEntity.ok(productService.findAll());
     }
 
+@GetMapping("/category/{categoryId}")
+    @PreAuthorize("hasRole('ADMIN','COORDINADOR')")
+    public ResponseEntity<List<Product>> getProductsByCategoryId(@PathVariable Long categoryId) {
+        return ResponseEntity.ok(productService.findByCategoryId(categoryId));
+    }
+
+    @GetMapping("/subcategory/{subcategoryId}")
+    @PreAuthorize("hasRole('ADMIN','COORDINADOR')")
+    public ResponseEntity<List<Product>> getProductsBySubcategoryId(@PathVariable Long subcategoryId) {
+        return ResponseEntity.ok(productService.findBySubcategoryId(subcategoryId));
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN','COORDINADOR')")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.findById(id));
-}
+    }
 
 @PostMapping
     @PreAuthorize("hasRole('ADMIN','COORDINADOR')")
@@ -48,4 +59,6 @@ public class ProductController {
         productService.delete(id);
         return ResponseEntity.ok(new MessageResponse("Producto eliminado con éxito"));
     }
+}
+
 }
