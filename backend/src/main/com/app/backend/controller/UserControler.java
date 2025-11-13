@@ -39,21 +39,15 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN','COORDINADOR')")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
         try{
-            User existingUser = userService.findById(id);
-            if(existingUser.getRole().equals("ADMIN")){
-                User updatedUser = userService.update(existingUser);
-                return ResponseEntity.status(403).body(null);
-            }
-            User updatedUser = userService.update(existingUser);
-            return ResponseEntity.ok(updatedUser);
-        } else {
-            return ResponseEntity.notFound().build();
-        
+         return ResponseEntity.ok(userService.update(id, user));
+        } 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(null);
+            if( e.getMessage().context()ains("User not found")) {
+                return ResponseEntity.notFound().build();
+            }
 
         }
-}
+
 
 @DeleteMapping(value ="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
@@ -61,4 +55,5 @@ public class UserController {
         userService.delete(id);
         return ResponseEntity.ok(new MessageResponse("Usuario eliminado con éxito"));
     }
+
 }
