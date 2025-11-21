@@ -248,7 +248,6 @@ export default function SubcategoriesScreen(){
                                     {editing ? 'Editar Subcategoria' : 'Nueva Subcategoria'}
                                 </Text>
                             </View>
-
                             <View style={subcategoriesStyles.formContainer}>
                                 <View style={subcategoriesStyles.inputGroup}>
                                     <Text style={subcategoriesStyles.inputLabel}>Nombre *</Text>
@@ -260,7 +259,6 @@ export default function SubcategoriesScreen(){
                                         placeholderTextColor="#999"
                                     />
                                 </View>
-                            
                                 <View style={subcategoriesStyles.inputGroup}>
                                         <Text style={subcategoriesStyles.inputLabel}>Descripcion</Text>
                                         <TextInput
@@ -274,7 +272,6 @@ export default function SubcategoriesScreen(){
                                             textAlignVertical="top"
                                         />
                                 </View>
-
                                 <View style={subcategoriesStyles.inputGroup}>
                                         <Text style={subcategoriesStyles.inputLabel}>Categoria</Text>
                                         <View style={subcategoriesStyles.picker}>
@@ -296,7 +293,6 @@ export default function SubcategoriesScreen(){
                                         </View>
                                 </View>
                             </View>
-
                             <View style={subcategoriesStyles.modalActions}>
                                 <TouchableOpacity 
                                 style={[subcategoriesStyles.secondaryButton]}
