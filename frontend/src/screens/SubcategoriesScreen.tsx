@@ -295,7 +295,7 @@ export default function SubcategoriesScreen(){
                             </View>
                             <View style={subcategoriesStyles.modalActions}>
                                 <TouchableOpacity 
-                                style={[subcategoriesStyles.secondaryButton]}
+                                style={subcategoriesStyles.secondaryButton}
                                 onPress={() => setModalVisible(false)}
                                 >
                                 <Text style={subcategoriesStyles.secondaryButtonText}>Cancelar</Text>
